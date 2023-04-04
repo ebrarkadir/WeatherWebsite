@@ -1,0 +1,31 @@
+﻿@model Weather
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container text-center">
+        <h1> Weather in @Model.City</h1>
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <img src="http://openweathermap.org/img/wn/@Model.Icon" alt="Weather Icon">
+                <h2>@Model.Temperature °C</h2>
+                <p> <b>Description: </b>@Model.Description</p>
+                <p> <b>Status: </b> @Model.Main</p>
+            </div>
+        </div>
+        <form class="mt-4" action="@Url.Action("Index", "Home")" method="get">
+            <div class="form-group">
+                <label for="city">Search another city: </label>
+                <input type="text" name="city" id="city" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</body>
+</html>
